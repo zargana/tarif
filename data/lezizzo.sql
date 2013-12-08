@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 01 Ara 2013, 13:04:47
+-- Üretim Zamanı: 08 Ara 2013, 11:30:19
 -- Sunucu sürümü: 5.6.11
 -- PHP Sürümü: 5.5.3
 
@@ -25,6 +25,37 @@ USE `lezizzo`;
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `iletisim`
+--
+
+CREATE TABLE IF NOT EXISTS `iletisim` (
+  `id_iletisim` int(11) NOT NULL AUTO_INCREMENT,
+  `ad` varchar(25) NOT NULL,
+  `soyad` varchar(25) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `id_iletisim_kategori` int(2) NOT NULL,
+  `baslik` varchar(255) NOT NULL,
+  `mesaj` text NOT NULL,
+  `tarih` datetime NOT NULL,
+  `ip` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_iletisim`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `iletisim_kategori`
+--
+
+CREATE TABLE IF NOT EXISTS `iletisim_kategori` (
+  `id_iletisim_kategori` int(11) NOT NULL AUTO_INCREMENT,
+  `ad` varchar(25) NOT NULL,
+  PRIMARY KEY (`id_iletisim_kategori`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `kullanici`
 --
 
@@ -35,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `kullanici` (
   `password` varchar(40) NOT NULL,
   `status` int(1) NOT NULL COMMENT '0-pasif,1-aktif,2-yasakli',
   PRIMARY KEY (`id_kullanici`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Tablo döküm verisi `kullanici`
