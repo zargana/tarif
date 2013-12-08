@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>İletişim formu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<div>
+    <form action="iletisim_gonder.php" method="POST">
+        Ad: <input type="text" name="ad" value="" placeholder="Adınızı girin.." />
+        <br />
+        Soyad: <input type="text" name="soyad" value="" placeholder="Soyadınızı girin.." />
+        <br />
+        Email: <input type="text" name="email" value="" placeholder="Email adresinizi girin.." />
+        <br />
+        Kategori: <select name="id_kategori">
+            <option value="">Seçiniz..</option>
+        </select>
+        
+        <br />
+        
+        <input type="text" name="baslik" value="" placeholder="Mesaj başlığınızı girin.." />
+        <br />
+        
+        <textarea name="mesaj" rows="4" cols="20" placeholder="Mesajınızı girin..">
+        </textarea>
+        
+        
+        
+    </form>
+</div>
+</body>
+</html>
