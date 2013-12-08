@@ -78,7 +78,7 @@ if( strlen($mesaj)>1000 ){
                 echo '<br />';
             }
         }else{
-            $sql = "INSERT INTA "
+            $sql = "INSERT INTO "
                     . "iletisim(ad,soyad,email,id_iletisim_kategori,baslik,mesaj,tarih,ip) "
                     . "VALUES('$ad', '$soyad', '$email', $id_kategori, '$baslik', '$mesaj', '$tarih', '$ip')";
             
