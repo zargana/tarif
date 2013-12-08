@@ -1,3 +1,6 @@
+<?php
+include_once 'config.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +11,31 @@
 <body>
 <div>
     <form action="iletisim_gonder.php" method="POST">
-        Ad: <input type="text" name="ad" value="" placeholder="Adınızı girin.." />
+        Ad: <input type="text" name="ad" value="" placeholder="Adınızı girin.." size="25" maxlength="25" />
         <br />
         Soyad: <input type="text" name="soyad" value="" placeholder="Soyadınızı girin.." />
         <br />
         Email: <input type="text" name="email" value="" placeholder="Email adresinizi girin.." />
         <br />
-        Kategori: <select name="id_kategori">
+        Kategori: 
+        <?php
+        $sql = "SELECT * FROM iletisim_kategori;";
+        
+        $kategoriler = $DB->get_results( $sql );
+        ?>
+        <select name="id_kategori">
             <option value="">Seçiniz..</option>
+            
+            <?php
+            foreach($kategoriler as $kategori){
+            ?>
+                <option value="<?php echo $kategori->id_iletisim_kategori ?>">
+                <?php echo $kategori->ad; ?>
+                </option>
+            <?php
+            }
+            ?>
+            
         </select>
         
         <br />
