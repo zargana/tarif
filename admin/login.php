@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,10 +10,22 @@
 </head>
 <body>
 <div>
-    
+   
+    <div style="color:red; border: 1px solid #ccc">
+        <?php
+        if( isset( $_SESSION['hataMesaj'] ) ){
+            foreach ($_SESSION['hataMesaj'] as $hata){
+                echo $hata;
+                echo '<br />';
+            }
+            unset($_SESSION['hataMesaj']);
+        }
+        ?>
+    </div>
+   
     <form action="login_gonder.php" method="POST">
         
-    Kullanıcı adı: <input type="text" name="email" value="" />
+    Email: <input type="text" name="email" value="" />
     <br />
     Şifre: <input type="password" name="password" value="" />
     <br />
