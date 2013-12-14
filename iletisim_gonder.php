@@ -84,7 +84,7 @@ if( strlen($mesaj)>1000 ){
             
             $sonuc = $DB->query( $sql);
             if($sonuc==1){
-                echo 'Kayot başarılı..';
+                echo 'Kayıt başarılı..';
             }else{
                 echo 'Kayıt esnasında bir hata oluştu.';
                 echo '<br />';
