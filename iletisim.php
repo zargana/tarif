@@ -10,7 +10,7 @@ include_once 'config.php';
 </head>
 <body>
 <div>
-    <form action="iletisim_gonder.php" method="POST">
+    <form action="iletisim_gonder.php" method="POST" enctype="multipart/form-data">
         Ad: <input type="text" name="ad" value="" placeholder="Adınızı girin.." size="25" maxlength="25" />
         <br />
         Soyad: <input type="text" name="soyad" value="" placeholder="Soyadınızı girin.." />
@@ -45,6 +45,9 @@ include_once 'config.php';
         
         Mesajınız: <br />
         <textarea name="mesaj" rows="4" cols="20" placeholder="Mesajınızı girin.."></textarea>
+        <br />
+        
+        Dosya eki 1: <input type="file" name="dosya1" value="" />
         <br />
         
         <input type="submit" value="Gönder" name="btnGonder" />

@@ -68,14 +68,23 @@ if( $islem == 'detay' ){
         echo '<br />';
         
         echo $mesaj->ip;
-        echo '<br />';        
+        echo '<br />';
+        
+        if ( !empty( $mesaj->dosya1 ) ){
+            echo '<a href="../dosyalar/'.$mesaj->dosya1.'"> '.$mesaj->dosya1.'  </a>';
+        }
         
     }
 }
 
 if( $islem == 'sil' ){
+    $sql4 = "SELECT dosya1 FROM iletisim WHERE id_iletisim = $id;";
+    $dosya1Ad = $DB->get_var( $sql4 );
+
     $sql3 = "DELETE FROM iletisim WHERE id_iletisim = $id";
     $DB->query( $sql3 );
+    
+    unlink( '../dosyalar/' . $dosya1Ad );
     
     echo 'Mesaj silindi.';
 }

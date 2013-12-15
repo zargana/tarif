@@ -11,6 +11,8 @@ $id_kategori = $_POST['id_kategori'];
 $baslik = $_POST['baslik'];
 $mesaj = $_POST['mesaj'];
 
+$dosya1 = $_FILES['dosya1'];
+
 //phpnin ürettiği veri
 $tarih = date('Y-m-d H:i:s');
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -60,6 +62,12 @@ if( empty( $mesaj ) ){
 if( strlen($mesaj)>1000 ){
     $hataMesaj[] = 'Başlık 1000 karakterden büyük olamaz.';
 }
+
+//dosya türü kontrolü örneği için bkz. http://www.w3schools.com/php/php_file_upload.asp
+if( !empty( $dosya1 ) && $dosya1['size'] > 3 * 1024 * 1024 ){
+    $hataMesaj[] = 'Dosya boyutu 3MB den büyük olamaz.';
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,9 +86,11 @@ if( strlen($mesaj)>1000 ){
                 echo '<br />';
             }
         }else{
+            move_uploaded_file($dosya1['tmp_name'], 'dosyalar/' . $dosya1['name'] );
+            
             $sql = "INSERT INTO "
-                    . "iletisim(ad,soyad,email,id_iletisim_kategori,baslik,mesaj,tarih,ip) "
-                    . "VALUES('$ad', '$soyad', '$email', $id_kategori, '$baslik', '$mesaj', '$tarih', '$ip')";
+                    . "iletisim(ad,soyad,email,id_iletisim_kategori,baslik,mesaj,tarih,ip,dosya1) "
+                    . "VALUES('$ad', '$soyad', '$email', $id_kategori, '$baslik', '$mesaj', '$tarih', '$ip', '".$dosya1['name']."')";
             
             $sonuc = $DB->query( $sql);
             if($sonuc==1){

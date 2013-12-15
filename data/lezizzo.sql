@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 15 Ara 2013, 10:20:15
+-- Üretim Zamanı: 15 Ara 2013, 12:48:22
 -- Sunucu sürümü: 5.6.11
 -- PHP Sürümü: 5.5.3
 
@@ -38,15 +38,17 @@ CREATE TABLE IF NOT EXISTS `iletisim` (
   `mesaj` text NOT NULL,
   `tarih` datetime NOT NULL,
   `ip` varchar(30) NOT NULL,
+  `dosya1` varchar(255) DEFAULT NULL,
+  `dosya2` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_iletisim`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
 -- Tablo döküm verisi `iletisim`
 --
 
-INSERT INTO `iletisim` (`id_iletisim`, `ad`, `soyad`, `email`, `id_iletisim_kategori`, `baslik`, `mesaj`, `tarih`, `ip`) VALUES
-(1, 'hasan', 'tokatlı', 'hasantktl@gmail.com', 3, 'yemekler çok lezzetli', 'sitenizdeki tarifleri uyguladım, teşekkür ederim', '2013-12-08 12:57:47', '::1');
+INSERT INTO `iletisim` (`id_iletisim`, `ad`, `soyad`, `email`, `id_iletisim_kategori`, `baslik`, `mesaj`, `tarih`, `ip`, `dosya1`, `dosya2`) VALUES
+(1, 'hasan', 'tokatlı', 'hasantktl@gmail.com', 3, 'yemekler çok lezzetli', 'sitenizdeki tarifleri uyguladım, teşekkür ederim', '2013-12-08 12:57:47', '::1', NULL, NULL);
 
 -- --------------------------------------------------------
 
