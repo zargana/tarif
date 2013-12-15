@@ -20,10 +20,9 @@ require_once '../config.php';
 <body>
     
 <div id="menu" style="width:200px; min-height: 400px; float: left; background: #ccffcc">
-    <ul>
-        <li><a href="index.php">Anasayfa</a></li>
-        <li><a href="iletisim.php">İletişim mesajları</a></li>
-    </ul>
+<?php
+include_once 'inc/menu.php';
+?>
 </div>
 
 <div id="icerik" style="width:600px; min-height: 600px; float: left; background: #ffff99">
@@ -35,11 +34,20 @@ require_once '../config.php';
     if( count( $mesajlar ) == 0 ){
         echo 'Hiç mesaj yok';
     }else{
-        
+        echo '<table border="1">';
+        echo '<tr><td>ID</td> <td>Başlık</td> <td>Ad</td> <td>Soyad</td> <td>Tarih</td> <td>İşlem</td> </tr>';
         foreach ($mesajlar as $mesaj) {
-            echo $mesaj->baslik;
-            echo '<br />';
+            echo '<tr>';
+                echo '<td>' . $mesaj->id_iletisim . '</td>';
+                echo '<td>' . $mesaj->baslik . '</td>';
+                echo '<td>' . $mesaj->ad . '</td>';
+                echo '<td>' . $mesaj->soyad . '</td>';
+                echo '<td>' . $mesaj->tarih . '</td>';
+                echo '<td><a href="iletisim_islem.php?islem=detay&id='. $mesaj->id_iletisim .'">Detay</a> | '
+                        . '<a onclick="return confirm( \' Mesaj silinecek! \' );" href="iletisim_islem.php?islem=sil&id='. $mesaj->id_iletisim .'">Sil</a></td>';
+            echo '</tr>';
         }
+        echo '</table>';
         
     }
     

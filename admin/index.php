@@ -18,10 +18,9 @@ if( !( isset($_SESSION['oturumAcildi']) && $_SESSION['oturumAcildi'] == 1 ) ){
 <body>
     
 <div id="menu" style="width:200px; min-height: 400px; float: left; background: #ccffcc">
-    <ul>
-        <li><a href="index.php">Anasayfa</a></li>
-        <li><a href="iletisim.php">İletişim mesajları</a></li>
-    </ul>
+<?php
+include_once 'inc/menu.php';
+?>
 </div>
 
 <div id="icerik" style="width:600px; min-height: 600px; float: left; background: #ffff99">
